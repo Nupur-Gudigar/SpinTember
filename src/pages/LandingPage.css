@@ -1,0 +1,86 @@
+.landing {
+  min-height: 100vh;  /* At least full viewport, can expand if needed */
+  width: 100vw;
+  background: url("https://i.pinimg.com/originals/51/7d/50/517d50010dfe6e71d17548cae0f6f0dc.gif") no-repeat center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.325);
+  z-index: 1;
+}
+
+
+.content {
+  position: relative;
+  text-align: center;
+  max-width: 800px;
+  padding: 20px;
+}
+
+h1 {
+  font-family: 'Jersey 25', sans-serif;
+  font-size: 4.5rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.8); /* make text glow */
+}
+
+
+p {
+
+    font-family: "Jersey 10", sans-serif;
+    font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+.start-btn {
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  background: purple;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  cursor: pointer;
+  font-family: 'Jersey 25', sans-serif;
+}
+
+.start-btn:hover {
+  background: darkviolet;
+}
+.content {
+  position: relative;
+  text-align: center;
+  max-width: 700px;
+  padding: 30px;
+  z-index: 2;
+}
+
+p {
+  font-size: 1.3rem;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.start-btn {
+  padding: 15px 50px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #8e2de2, #4a00e0); /* purple gradient */
+  border: none;
+  border-radius: 50px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.start-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #4a00e0, #8e2de2);
+}

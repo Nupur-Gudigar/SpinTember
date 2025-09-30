@@ -1,0 +1,39 @@
+/* Left nav container for Home button */
+.left-nav {
+  position: absolute;
+  top: 20px;
+  left: 140px;
+  display: flex;
+  gap: 15px;
+  z-index: 10;
+}
+
+/* Right nav container for Photo Wall button */
+.right-nav {
+  position: absolute;
+  top: 20px;
+  right: 60px;
+  display: flex;
+  gap: 15px;
+  z-index: 10;
+}
+
+/* Shared style for nav buttons */
+.nav-btn {
+  padding: 12px 32px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  font-family: 'Jersey 25', sans-serif;
+  background: linear-gradient(135deg, #8e2de2, #4a00e0);
+  border: none;
+  border-radius: 50px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.nav-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #4a00e0, #8e2de2);
+}

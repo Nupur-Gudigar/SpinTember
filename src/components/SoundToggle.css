@@ -1,0 +1,77 @@
+.sound-toggle {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 60px;
+  height: 60px;
+  background: #1d0f56;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 4px 12px rgba(29, 15, 86, 0.4),
+    0 0 20px rgba(147, 51, 234, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  border: 2px solid rgba(147, 51, 234, 0.3);
+  cursor: pointer;
+}
+
+.sound-toggle:hover {
+  background: #2a1a7a;
+  transform: scale(1.1);
+  box-shadow: 
+    0 6px 20px rgba(29, 15, 86, 0.6),
+    0 0 30px rgba(147, 51, 234, 0.5),
+    0 0 50px rgba(147, 51, 234, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-color: rgba(147, 51, 234, 0.6);
+}
+
+.sound-icon {
+  color: white;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sound-toggle:hover .sound-icon {
+  transform: scale(1.1);
+}
+
+.sound-tooltip {
+  position: absolute;
+  top: 50%;
+  left: 70px;
+  transform: translateY(-50%);
+  background: rgba(29, 15, 86, 0.95);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  border: 1px solid rgba(147, 51, 234, 0.4);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    0 0 10px rgba(147, 51, 234, 0.2);
+}
+
+.sound-toggle:hover .sound-tooltip {
+  opacity: 1;
+}
+
+.sound-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  transform: translateY(-50%);
+  border: 6px solid transparent;
+  border-right-color: rgba(29, 15, 86, 0.95);
+}
