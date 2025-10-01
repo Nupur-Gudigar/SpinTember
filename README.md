@@ -1,5 +1,5 @@
-# � SpinTember - The Ultimate Adventure Wheel! 
-
+# 🎡 SpinTember - The Ultimate Adventure Wheel! 
+[![Image of my-views-counter](https://github.com/Nupur-Gudigar/my-views-counter/blob/master/svg/1067486548/badge.svg)](https://github.com/Nupur-Gudigar/my-views-counter/blob/master/readme/1067486548/week.md)
 <div align="center">
 
 ![SpinTember Banner](./src/assets/Landing%20Page.gif)
@@ -47,6 +47,8 @@ It's like having a magic 8-ball, but way cooler and with actual useful suggestio
 - Cross-platform support (Windows, macOS, Linux - we don't discriminate)
 - Clean, distraction-free interface
 
+👉 **Download the desktop app from the [Releases page](https://github.com/Nupur-Gudigar/Spintember/releases)**
+
 ## 🚀 Getting Started (The Developer Edition)
 
 Ready to join the SpinTember revolution? Here's how to get this baby running:
@@ -87,7 +89,7 @@ npm run electron-pack
 
 1. **Choose Your Vibe**: Pick from Academic, Cozy, Creative, or Chaotic modes
 2. **Give It a Spin**: Click that beautiful wheel and watch the magic happen
-3. **Embrace Your Fate**: Whatever lands is your adventure for the day
+3. **Embrace Your Fate**: Whatever it lands on is your adventure for the day
 4. **Capture the Moment**: Take a victory photo when you complete your adventure
 5. **Build Your Legacy**: Watch your Board of Honor grow with each conquered challenge
 
@@ -100,25 +102,6 @@ npm run electron-pack
 - **Camera**: React Webcam (for those victory selfies)
 - **Animations**: CSS magic + love
 - **Font**: Jersey 25 (giving it that vintage sports feel)
-
-## 📁 Project Structure (The Organized Chaos)
-
-```
-spintember/
-├── src/
-│   ├── pages/           # Adventure wheels & victory screens
-│   ├── components/      # Reusable UI magic
-│   ├── assets/          # Images, sounds, and visual treats
-│   ├── redux/           # State management wizardry
-│   ├── hooks/           # Custom React hooks
-│   └── context/         # React context providers
-├── public/              # Static assets that don't change
-├── dist/                # Web build output (auto-generated)
-├── dist-electron/       # Desktop app builds (also auto-generated)
-├── scripts/             # Helper scripts for development
-├── electron.mjs         # Electron main process configuration
-└── package.json         # The heart that keeps everything together
-```
 
 ## 📝 Available Scripts (Your Command Arsenal)
 
@@ -137,39 +120,6 @@ npm run lint             # Check code quality (be a good citizen)
 npm run preview          # Preview production web build
 ```
 
-## 🤝 Contributing (Join the Fun!)
-
-Found a bug? Have a wild idea for a new feature? Want to add more adventure options? We'd love to have you aboard the SpinTember train!
-
-1. Fork this repo (it's like adopting a digital pet)
-2. Create a feature branch (`git checkout -b feature/amazing-new-thing`)
-3. Make your magic happen
-4. Commit your changes (`git commit -m 'Add some amazing feature'`)
-5. Push to your branch (`git push origin feature/amazing-new-thing`)
-6. Open a Pull Request and tell us about your brilliance!
-
-## 🐛 Found a Bug? (Bug Bounty: High Fives!)
-
-If you find a bug, please create an issue and tell us:
-- What you were trying to do
-- What actually happened (the plot twist nobody wanted)
-- How we can reproduce the chaos
-- Screenshots of the crime scene (if applicable)
-
-## � Future Features (The Roadmap of Dreams)
-
-- [ ] Social features (share your adventures with friends)
-- [ ] Custom adventure creation (because you know what you want)
-- [ ] Achievement system (gamify all the things!)
-- [ ] Mobile app version (adventures on the go)
-- [ ] Integration with calendar apps (schedule your spontaneity)
-- [ ] Weather-based adventure suggestions (because why not?)
-
-## � License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. 
-
-Translation: Do whatever you want with this code, just don't blame us if you become addicted to spinning wheels!
 
 ## 🙏 Acknowledgments
 
@@ -178,14 +128,16 @@ Translation: Do whatever you want with this code, just don't blame us if you bec
 - The Electron team for bringing desktop apps back from the dead
 - Coffee, for making late-night coding sessions possible
 - The spinning wheel gods for blessing our random number generation
+- Pinterest, for the amazing gifs.
+- Figma, for helping design all the wireframes and customizing polaroid frames.
 
 ---
 
 <div align="center">
 
-**Made with ❤️, ☕, and probably too many spinning wheel tests**
+**Made with ❤️, ☕, and probably too many webcam photobooth tests**
 
-*SpinTember - Where boring days go to die and adventures are born!*
+*Psst - you can use it even if it's not September, just spin whenever bored !*
 
 ⭐ Star this repo if it brightened your day (or at least made you smile)
 
