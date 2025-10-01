@@ -14,96 +14,81 @@ function createWindow() {
     height: 900,
     minWidth: 800,
     minHeight: 600,
-    icon: path.join(__dirname, "src", "assets", "dekstop-icon.jpeg"), // Custom app icon
+    icon: path.join(__dirname, "src", "assets", "dekstop-icon.jpeg"),
     webPreferences: {
+      preload: path.join(__dirname, "preload.js"), // optional if you want IPC later
       nodeIntegration: false,
       contextIsolation: true,
-      webSecurity: true,
+      webSecurity: true
     },
-    titleBarStyle: 'default',
-    show: false, // Don't show until ready-to-show
-    title: 'SpinTember', // Custom window title
+    titleBarStyle: "default",
+    show: false,
+    title: "SpinTember"
   });
 
-  // Show window when ready to prevent visual flash
-  mainWindow.once('ready-to-show', () => {
+  mainWindow.once("ready-to-show", () => {
     mainWindow.show();
   });
 
-  const startUrl = process.env.ELECTRON_START_URL;
-  console.log("ELECTRON_START_URL =", startUrl); // debug
+  // ✅ Unified dev vs prod URL
+  const startUrl =
+    process.env.VITE_DEV_SERVER_URL ||
+    `file://${path.join(__dirname, "dist/index.html")}`;
 
-  if (startUrl) {
-    mainWindow.loadURL(startUrl);
-    // Open DevTools in development
-    if (process.env.NODE_ENV === 'development') {
-      mainWindow.webContents.openDevTools();
-    }
-  } else {
-    mainWindow.loadFile(path.join(__dirname, "dist", "index.html"));
+  console.log("Electron start URL =", startUrl);
+  mainWindow.loadURL(startUrl);
+
+  if (process.env.VITE_DEV_SERVER_URL) {
+    mainWindow.webContents.openDevTools();
   }
 
-  // Handle external links
+  // Handle external links in browser
   mainWindow.webContents.setWindowOpenHandler(({ url }) => {
     shell.openExternal(url);
-    return { action: 'deny' };
+    return { action: "deny" };
   });
 
-  // Set app menu
   createMenu();
+
+  mainWindow.on("closed", () => {
+    mainWindow = null;
+  });
 }
 
 function createMenu() {
   const template = [
     {
-      label: 'SpinTember',
+      label: "SpinTember",
       submenu: [
+        { label: "About SpinTember", click: () => {} },
+        { type: "separator" },
         {
-          label: 'About SpinTember',
-          click: () => {
-            // You can show an about dialog here
-          }
-        },
-        { type: 'separator' },
-        {
-          label: 'Quit',
-          accelerator: process.platform === 'darwin' ? 'Cmd+Q' : 'Ctrl+Q',
-          click: () => {
-            app.quit();
-          }
+          label: "Quit",
+          accelerator: process.platform === "darwin" ? "Cmd+Q" : "Ctrl+Q",
+          click: () => app.quit()
         }
       ]
     },
     {
-      label: 'View',
+      label: "View",
       submenu: [
-        { role: 'reload' },
-        { role: 'forceReload' },
-        { role: 'toggleDevTools' },
-        { type: 'separator' },
-        { role: 'resetZoom' },
-        { role: 'zoomIn' },
-        { role: 'zoomOut' },
-        { type: 'separator' },
-        { role: 'togglefullscreen' }
+        { role: "reload" },
+        { role: "forceReload" },
+        { role: "toggleDevTools" },
+        { type: "separator" },
+        { role: "resetZoom" },
+        { role: "zoomIn" },
+        { role: "zoomOut" },
+        { type: "separator" },
+        { role: "togglefullscreen" }
       ]
     },
-    {
-      label: 'Window',
-      submenu: [
-        { role: 'minimize' },
-        { role: 'close' }
-      ]
-    }
+    { label: "Window", submenu: [{ role: "minimize" }, { role: "close" }] }
   ];
 
-  // macOS specific menu adjustments
-  if (process.platform === 'darwin') {
-    template[0].label = 'SpinTember';
-    template[0].submenu.unshift({
-      label: 'About SpinTember',
-      role: 'about'
-    });
+  if (process.platform === "darwin") {
+    template[0].label = app.name;
+    template[0].submenu.unshift({ label: "About SpinTember", role: "about" });
   }
 
   const menu = Menu.buildFromTemplate(template);
@@ -111,15 +96,10 @@ function createMenu() {
 }
 
 app.whenReady().then(() => {
-  console.log("Electron app ready"); // debug
-  
-  // Set app name
-  app.setName('SpinTember');
-  
+  app.setName("SpinTember");
   createWindow();
 
-  // macOS: Re-create window when dock icon is clicked
-  app.on('activate', () => {
+  app.on("activate", () => {
     if (BrowserWindow.getAllWindows().length === 0) {
       createWindow();
     }
@@ -132,19 +112,10 @@ app.on("window-all-closed", () => {
   }
 });
 
-// Security: Prevent new window creation
-app.on('web-contents-created', (event, contents) => {
-  contents.on('new-window', (event, navigationUrl) => {
+// Extra security: prevent `new-window`
+app.on("web-contents-created", (event, contents) => {
+  contents.on("new-window", (event, navigationUrl) => {
     event.preventDefault();
     shell.openExternal(navigationUrl);
   });
-});
-
-// macOS: Show window when app is activated
-app.on("activate", () => {
-  if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow();
-  } else if (mainWindow) {
-    mainWindow.show();
-  }
 });
