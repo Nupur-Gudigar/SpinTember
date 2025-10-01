@@ -1,4 +1,4 @@
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import AdventureSelection from "./pages/AdventureSelection";
 import ChaoticWheel from "./pages/ChaoticWheel";
@@ -16,26 +16,24 @@ import SoundToggle from "./components/SoundToggle";
 function App() {
   return (
     <CursorProvider>
-      <Router>
-        {/* 🎶 Background music runs globally and reacts to route changes */}
-        <BackgroundMusic />  
+      {/* 🎶 Background music runs globally */}
+      <BackgroundMusic />  
 
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/AdventureSelection" element={<AdventureSelection />} />
-          <Route path="/ChaoticWheel" element={<ChaoticWheel />} />
-          <Route path="/CozyWheel" element={<CozyWheel />} />
-          <Route path="/victory" element={<VictoryPhoto />} />
-          <Route path="/AcademicWheel" element={<AcademicWheel />} />
-          <Route path="/CreativeWheel" element={<CreativeWheel />} />
-          <Route path="/BoardOfHonor" element={<BoardOfHonor />} />
-          <Route path="/LoadingScreen" element={<LoadingScreen />} />
-        </Routes>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/AdventureSelection" element={<AdventureSelection />} />
+        <Route path="/ChaoticWheel" element={<ChaoticWheel />} />
+        <Route path="/CozyWheel" element={<CozyWheel />} />
+        <Route path="/victory" element={<VictoryPhoto />} />
+        <Route path="/AcademicWheel" element={<AcademicWheel />} />
+        <Route path="/CreativeWheel" element={<CreativeWheel />} />
+        <Route path="/BoardOfHonor" element={<BoardOfHonor />} />
+        <Route path="/LoadingScreen" element={<LoadingScreen />} />
+      </Routes>
 
-        {/* Global toggle buttons */}
-        <CursorToggle />
-        <SoundToggle />
-      </Router>
+      {/* Global toggle buttons */}
+      <CursorToggle />
+      <SoundToggle />
     </CursorProvider>
   );
 }
