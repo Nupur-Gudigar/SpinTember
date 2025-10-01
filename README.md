@@ -1,5 +1,5 @@
 # 🎡 SpinTember - The Ultimate Adventure Wheel! 
-
+[![Image of my-views-counter](https://github.com/Nupur-Gudigar/my-views-counter/blob/master/svg/1067486548/badge.svg)](https://github.com/Nupur-Gudigar/my-views-counter/blob/master/readme/1067486548/week.md)
 <div align="center">
 
 ![SpinTember Banner](./src/assets/Landing%20Page.gif)
