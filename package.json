@@ -1,18 +1,21 @@
 {
-  "name": "first-draft-spintember",
+  "name": "spintember",
+  "version": "1.0.0",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
   "main": "electron.mjs",
+  "homepage": "https://sachindevangan.github.io/SpinTember",
   "scripts": {
     "dev": "vite --port 5173",
-    "build": "vite build",
-    "lint": "eslint .",
+    "build:web": "cross-env BUILD_TARGET=web vite build",
+    "build:electron": "cross-env BUILD_TARGET=electron vite build",
     "preview": "vite preview",
+    "predeploy": "npm run build:web",
+    "deploy": "gh-pages -d dist",
     "electron-dev": "concurrently \"npm run dev\" \"wait-on http://localhost:5173 && cross-env ELECTRON_START_URL=http://localhost:5173 electron .\"",
-    "electron-build": "npm run build && electron-builder",
-    "electron-pack": "npm run build && electron-builder --publish=never",
-    "dist": "npm run build && electron-builder --publish=always"
+    "electron-build": "npm run build:electron && electron-builder",
+    "electron-pack": "npm run build:electron && electron-builder --publish=never",
+    "dist": "npm run build:electron && electron-builder --publish=always"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.9.0",
@@ -40,7 +43,8 @@
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.13",
     "vite": "^7.1.6",
-    "wait-on": "^9.0.1"
+    "wait-on": "^9.0.1",
+    "gh-pages": "^6.3.0"
   },
   "build": {
     "appId": "com.spintember.app",
@@ -61,10 +65,7 @@
       "target": [
         {
           "target": "dmg",
-          "arch": [
-            "x64",
-            "arm64"
-          ]
+          "arch": ["x64", "arm64"]
         }
       ]
     },
@@ -73,9 +74,7 @@
       "target": [
         {
           "target": "nsis",
-          "arch": [
-            "x64"
-          ]
+          "arch": ["x64"]
         }
       ]
     },
@@ -84,9 +83,7 @@
       "target": [
         {
           "target": "AppImage",
-          "arch": [
-            "x64"
-          ]
+          "arch": ["x64"]
         }
       ]
     },
