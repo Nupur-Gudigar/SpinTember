@@ -1,17 +1,17 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
-// https://vite.dev/config/
+const isWeb = process.env.BUILD_TARGET === "web";
+
 export default defineConfig({
   plugins: [react()],
-  base: '/SpinTember/', // ✅ important for GitHub Pages (repo name)
+  base: isWeb ? "/SpinTember/" : "./", // ✅ works on GitHub Pages + Electron
   build: {
-    outDir: 'dist',
-    assetsDir: 'assets',
-    sourcemap: false, // Disable source maps in production for smaller builds
+    outDir: "dist",
+    assetsDir: "assets",
   },
   server: {
     port: 5173,
-    strictPort: true, // Exit if port is already in use
-  }
-})
+    strictPort: true,
+  },
+});
